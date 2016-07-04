@@ -6,15 +6,15 @@ app.config(function($routeProvider){
   $routeProvider
   .when('/', {
     templateUrl: 'templates/_main.html',
-    controller: 'ChatController'
+    controller: 'LoginController'
   })
-  .when('/draw', {
-    templateUrl: 'templates/_draw.html',
-    controller: 'DrawController'
+  .when('/signup', {
+    templateUrl: 'templates/_signup.html',
+    controller: 'signupController'
   })
-  .when('/board', {
-    templateUrl: 'templates/_board.html',
-    controller: 'BoardController'
+  .when('/dashboard', {
+    templateUrl: 'templates/_dashboard.html',
+    controller: 'dashController'
   })
   .otherwise({redirectTo: '/'});
 });
