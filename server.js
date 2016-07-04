@@ -42,6 +42,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+require('./public/passport/config/passport.js')(passport); // pass passport for configuration
 require('./public/passport/app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 // app.use('/', routes);

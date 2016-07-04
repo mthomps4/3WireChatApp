@@ -1,31 +1,13 @@
 <div class="flexContainer">
 
 <div class="mainContainer">
-  <h1 id="Title">3WireChat</h1>
+  <div id="splashContainer">
+  <img id="chatLogo" src="../images/chat.png"><h1 id="Title">3WireChat</h1>
 
-  <!-- show any messages that come back with authentication -->
-  <!-- <% if (message.length > 0) { %>
-  <div class="alert-danger"><%= message %></div>
-  <% } %> -->
-
-  <!-- LOGIN FORM -->
-  <form id="loginForm" action="/login" method="post">
-    <div class="form-group">
-        <label>Email:</label>
-        <input type="text" class="form-control" name="username" placeholder="Email">
-    </div>
-
-    <div class="form-group fg2">
-        <label>Password:</label>
-        <input type="password" class="form-control" name="password" placeholder="Password">
-    </div>
-
-    <button type="submit">Log In</button>
-  </form>
-
-  <hr>
-
-  <p id="mainSignup">Need an account? <a href="/signup">Signup</a></p>
-
+  <div id="splashLogin">
+    <a href="/#/login"><button> Login </button></a>
+    <a href="/#/signup"><button> Signup </button></a>
+  </div>
+</div> 
 </div>
 </div>
