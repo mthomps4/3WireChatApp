@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.sendFile('./public/views/index.html', { title: 'Express' });
-});
+  res.sendfile('./public/views/index.html', { title: '3WireChat' });
+ });
 
 module.exports = router;

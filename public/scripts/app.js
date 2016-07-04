@@ -5,7 +5,7 @@ var app = angular.module('app',["ngRoute"]);
 app.config(function($routeProvider){
   $routeProvider
   .when('/', {
-    templateUrl: 'templates/_chat.html',
+    templateUrl: 'templates/_main.html',
     controller: 'ChatController'
   })
   .when('/draw', {

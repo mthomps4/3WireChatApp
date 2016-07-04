@@ -3,7 +3,16 @@
 
 # 3WireChatApp
 Collaborative web app to Chat, Layout(QuickSketch), and Estimate board-feet for woodworking projects.
--Will look to use/practice the MEAN stack and Websockets
+- Will look to use MEAN stack with Socket.io
+- Passport Local for Authentication
+
+
+#Login
+- main.html for root
+- login.html (already a user)
+- signup.html (new user)
+- Not dealing with Google/Facebook/Twitter yet
+- redirect to dashboard.html 
 
 # Desktop Layout & Function
 Login:
