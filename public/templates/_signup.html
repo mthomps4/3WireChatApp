@@ -1,11 +1,16 @@
-<div class="flexContainer">
+<div id="flexContainer">
 
-<div class="mainContainer">
+<div id="mainContainer">
   <h1 id="Title">3WireChat</h1>
   <h3 > Signup </h3>
 
-  <!-- LOGIN FORM -->
-  <form id="loginForm" action="/login" method="post">
+  <!-- show any messages that come back with authentication -->
+    <!-- {{ if (message.length > 0) { }}
+        <div class="alert alert-danger">{{ message }}</div>
+    {{ } }} -->
+
+  <!-- SIGNUP FORM -->
+  <form id="loginForm" action="/signup" method="post">
     <div class="form-group">
         <label>Email:</label>
         <input type="text" class="form-control" name="username" placeholder="Email">
@@ -19,7 +24,7 @@
     <button type="submit">Signup</button>
   </form>
 
-  <p id="mainSignup">Already have an account? <a href="/#/">Login</a></p>
+  <p id="mainSignup">Already have an account? <a href="/#/login">Login</a></p>
 
 
 </div>
