@@ -5,12 +5,14 @@ var bcrypt   = require('bcrypt-nodejs');
 var userSchema = mongoose.Schema({
 
     local            : {
+        id           : String,
         email        : String,
         password     : String,
-    }
+    },
 });
 
-// methods **********************
+// methods
+
 // generating a hash
 userSchema.methods.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);

@@ -4,45 +4,34 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-var port     = process.env.PORT || 3000;
-
-// var routes = require('./routes/index');
-// var users = require('./routes/users');
-
-var app = express();
+var port = process.env.PORT || 8080;
+var session = require('express-session');
 
 var mongoose = require('mongoose');
 var passport = require('passport');
-var Strategy = require('passport-local').Srategy;
 var flash = require('connect-flash');
-var session = require('express-session');
 
+var routes = require('./routes/index');
+var users = require('./routes/users');
 
-//configuration
-mongoose.connect('mongodb://localhost/3WireChatLogin'); //Connect to login database
-require('./public/passport/config/passport.js')(passport); // pass passport for configuration
+var app = express();
+var configDB = require('./passportConfig/database.js');
 
-// // view engine setup
-// app.set('views', path.join(__dirname, '/views'));
+mongoose.connect(configDB.url); // connect to our database
+require('./passportConfig/passport')(passport); // pass passport for configuration
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-app.use(favicon(__dirname + '/public/images/favicon.ico'));
+app.use(favicon(path.join(__dirname, 'public/images/', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(__dirname + '/public'));
-
-
-// Initialize Passport and restore authentication state, if any, from the session.
-app.use(session({secret:"BuildChats"}));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
-
-require('./public/passport/app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
+app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', routes);
 // app.use('/users', users);
@@ -78,6 +67,18 @@ require('./public/passport/app/routes.js')(app, passport); // load our routes an
 //   });
 // });
 
-console.log('The gate to Gondor is open on ' + port);
+// required for passport
+app.use(session({ secret: 'BuildChats' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
+
+// routes ======================================================================
+require('./passportApp/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
+
+// launch ======================================================================
+app.listen(port);
+console.log('The gate to Gondor opened on port ' + port);
+
 
 module.exports = app;
