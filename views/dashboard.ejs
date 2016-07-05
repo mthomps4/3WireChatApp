@@ -8,17 +8,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
     <link href="../stylesheets/style.css" rel="stylesheet" type="text/css">
     <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
+    <link href="../stylesheets/chat.css" rel="stylesheet" type="text/css">
 
   </head>
 
-<body>
+<body ng-app="app">
   <div id="background">
   <div id="backgroundOverlay">
 
+
+    <div ng-view></div>
+    <test></test>
+
   <div id="flexContainer">
   <div id="mainContainer">
+
+
     <h1> Dashboard Landing Page </h1>
     <a href="/logout" class="logoutButton"><button>Logout</button></a>
+
+
 
 
 <p>
@@ -28,9 +37,16 @@
 </p>
 
 
+
 </div>
 </div>
 </div>
 </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+<script src="../javascripts/chat.js"></script>
+
 </body>
 </html>
