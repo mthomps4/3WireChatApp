@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var port = process.env.PORT || 8080;
+// var port = process.env.PORT || 8080;
 var session = require('express-session');
 
 var mongoose = require('mongoose');
@@ -77,8 +77,8 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 require('./passportApp/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 // launch ======================================================================
-app.listen(port);
-console.log('The gate to Gondor opened on port ' + port);
+// app.listen(port);
+console.log('The gate to Gondor opened on port ');
 
 
 module.exports = app;
