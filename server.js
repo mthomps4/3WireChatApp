@@ -1,10 +1,10 @@
 var express = require('express');
 var path = require('path');
+var http = require('http');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-// var port = process.env.PORT || 8080;
 var session = require('express-session');
 
 var mongoose = require('mongoose');
@@ -16,12 +16,6 @@ var users = require('./routes/users');
 
 var app = express();
 var configDB = require('./passportConfig/database.js');
-
-var http = require('http');
-app.io = require('socket.io')();
-
-
-
 
 mongoose.connect(configDB.url); // connect to our database
 require('./passportConfig/passport')(passport); // pass passport for configuration
@@ -39,39 +33,39 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', routes);
-// app.use('/users', users);
+app.use('/', routes);
+app.use('/users', users);
 
-// // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   var err = new Error('Not Found');
-//   err.status = 404;
-//   next(err);
-// });
-//
-// // error handlers
-//
-// // development error handler
-// // will print stacktrace
-// if (app.get('env') === 'development') {
-//   app.use(function(err, req, res, next) {
-//     res.status(err.status || 500);
-//     res.render('error', {
-//       message: err.message,
-//       error: err
-//     });
-//   });
-// }
-//
-// // production error handler
-// // no stacktraces leaked to user
-// app.use(function(err, req, res, next) {
-//   res.status(err.status || 500);
-//   res.render('error', {
-//     message: err.message,
-//     error: {}
-//   });
-// });
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// error handlers
+
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
+    });
+  });
+}
+
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {}
+  });
+});
 
 // required for passport
 app.use(session({ secret: 'BuildChats' })); // session secret
@@ -83,22 +77,11 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 require('./passportApp/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 // launch ======================================================================
-console.log('The gate to Gondor opened on port 3000');
+// console.log('The gate to Gondor opened on port ');
 
 // start listen with socket.io
-
-app.listen();
-app.io.on('connection', function(socket){
-  console.log('a user connected');
-
-  socket.on('chat message', function(msg){
-     console.log('chat message: ' + msg);
-     app.io.emit('chat message', msg);
-   });
-
-   socket.on('disconnect', function(){
-     console.log('user disconnected');
-   });
+http.createServer(app).listen(app.get('port'), function() {
+  console.log('The gate to Gondor opened on port ' + app.get('port'));
 });
 
 module.exports = app;

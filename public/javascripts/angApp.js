@@ -5,7 +5,7 @@ var app = angular.module('app',["ngRoute"]);
 app.config(function($routeProvider){
   $routeProvider
   .when('/dashboard', {
-    templateUrl: '../templates/_dashboard.html',
+    templateUrl: '../templates/_profile.html',
     controller: 'navController'
   })
   .when('/chat', {

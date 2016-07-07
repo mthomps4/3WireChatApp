@@ -67,3 +67,15 @@
   width:19%;
   color:teal;
 }
+
+#messages {
+  height: calc(100vh - 150px);
+  overflow-y: auto;
+  z-index: -1;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position:fixed;
+  bottom:50px;
+  width:100%;
+}
