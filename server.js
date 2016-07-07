@@ -17,6 +17,12 @@ var users = require('./routes/users');
 var app = express();
 var configDB = require('./passportConfig/database.js');
 
+var http = require('http');
+app.io = require('socket.io')();
+
+
+
+
 mongoose.connect(configDB.url); // connect to our database
 require('./passportConfig/passport')(passport); // pass passport for configuration
 
@@ -77,8 +83,22 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 require('./passportApp/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 // launch ======================================================================
-// app.listen(port);
-console.log('The gate to Gondor opened on port ');
+console.log('The gate to Gondor opened on port 3000');
 
+// start listen with socket.io
+
+app.listen();
+app.io.on('connection', function(socket){
+  console.log('a user connected');
+
+  socket.on('chat message', function(msg){
+     console.log('chat message: ' + msg);
+     app.io.emit('chat message', msg);
+   });
+
+   socket.on('disconnect', function(){
+     console.log('user disconnected');
+   });
+});
 
 module.exports = app;
