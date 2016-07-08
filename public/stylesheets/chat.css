@@ -44,5 +44,5 @@
 }
 
 #messages li:nth-child(odd){
-  background-color:blue;
+  background-color:gray;
 }
