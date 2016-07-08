@@ -11,11 +11,15 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var flash = require('connect-flash');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+// var routes = require('./routes/index');
+// var users = require('./routes/users');
 
 var app = express();
 var configDB = require('./passportConfig/database.js');
+
+//For Socket Chat
+app.io = require('socket.io')();
+
 
 mongoose.connect(configDB.url); // connect to our database
 require('./passportConfig/passport')(passport); // pass passport for configuration
@@ -33,8 +37,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+// app.use('/', routes);
+// app.use('/users', users);
+
+
+// required for passport
+app.use(session({ secret: 'BuildChats' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
+
+// routes ======================================================================
+require('./passportApp/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
+
+// launch ======================================================================
+console.log('The gate to Gondor is open');
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -67,21 +85,20 @@ app.use(function(err, req, res, next) {
   });
 });
 
-// required for passport
-app.use(session({ secret: 'BuildChats' })); // session secret
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
-app.use(flash()); // use connect-flash for flash messages stored in session
 
-// routes ======================================================================
-require('./passportApp/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
+//SOCKET.IO
+app.io.on('connection', function(socket){
+  console.log('a user connected');
 
-// launch ======================================================================
-// console.log('The gate to Gondor opened on port ');
+  socket.on('chat message', function(msg){
+     console.log('chat message: ' + msg);
+     app.io.emit('chat message', msg);
+   });
 
-// start listen with socket.io
-http.createServer(app).listen(app.get('port'), function() {
-  console.log('The gate to Gondor opened on port ' + app.get('port'));
+   socket.on('disconnect', function(){
+     console.log('user disconnected');
+   });
 });
+
 
 module.exports = app;

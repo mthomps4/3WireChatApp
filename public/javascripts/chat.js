@@ -3,7 +3,7 @@
 var socket = io();
 
 var form = document.getElementById('chatForm');
-var mes = document.getElementById('msg');
+var mes = document.getElementById('m');
 var ul = document.getElementById('messages');
 
 // $('form').submit(function(){
@@ -16,18 +16,17 @@ var ul = document.getElementById('messages');
 // socket.on('chat message', function(msg){
 //  $('#messages').append($('<li>').text(msg));
 //  });
-
-// function updateScroll(){
-//     var ul = document.getElementById("messages");
-//     ul.scrollTop = ul.scrollHeight;
-//       console.log(ul.scrollHeight + 100);
-// }
+function updateScroll(){
+    var ul = document.getElementById("messages");
+    ul.scrollTop = ul.scrollHeight;
+      console.log(ul.scrollHeight + 100);
+}
 
 if(form.addEventListener){
   form.addEventListener("submit",
   function(evt){
     evt.preventDefault();
-    socket.emit('chat', mes.value);
+    socket.emit('chat message', mes.value);
     mes.value = '';
     return false;
   },
@@ -35,11 +34,11 @@ if(form.addEventListener){
 };
 
 
-socket.on('chat', function(msg){
+socket.on('chat message', function(msg){
   var node = document.createElement("li");
   var textnode = document.createTextNode(msg);
   node.appendChild(textnode);
   ul.appendChild(node);
-  // updateScroll();
+  updateScroll();
   console.log('RAWR');
 });
