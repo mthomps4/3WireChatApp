@@ -6,46 +6,47 @@
 
     <title>3WireChat</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
-    <link href="../stylesheets/style.css" rel="stylesheet" type="text/css">
     <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
     <link href="../stylesheets/chat.css" rel="stylesheet" type="text/css">
+    <link href="../stylesheets/dash.css" rel="stylesheet" type="text/css">
 
   </head>
 
 <body ng-app="app">
-  <div id="background">
-  <div id="backgroundOverlay">
+<div id="background">
+<div id="backgroundOverlay">
 
-    <dash-nav></dash-nav>
-
-    <div ng-view></div>
-<!--
-  <div id="flexContainer">
-  <div id="mainContainer">
+<dash-nav></dash-nav>
+<div ng-view></div>
 
 
-    <h1> Dashboard Landing Page </h1>
+
+
+
+<div id="dashFlexContainer">
+<div id="logoutContainer">
+    <h3> Account Settings </h3>
     <a href="/logout" class="logoutButton"><button>Logout</button></a>
- -->
 
-<!-- <p>
-  <strong>id</strong>: <%= user._id %><br>
-  <strong>email</strong>: <%= user.local.email %><br>
-  <strong>password</strong>: <%= user.local.password %>
-</p> -->
-
-
-
-<!-- </div>
-</div> -->
+    <p>
+      <!-- <strong>id</strong>: <%= user._id %><br> -->
+      <strong>email</strong>: <%= user.local.email %><br>
+      <!-- <strong>password</strong>: <%= user.local.password %> -->
+    </p>
 </div>
 </div>
 
+
+
+</div>
+</div>
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
 <script src="../javascripts/angApp.js"></script>
 <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script src="../javascripts/controllers.js"></script>
+<script src="../javascripts/directives.js"></script>
 
 <!-- <script src="../javascripts/chat.js"></script> -->
 

@@ -4,13 +4,13 @@ var app = angular.module('app',["ngRoute"]);
 
 app.config(function($routeProvider){
   $routeProvider
-  .when('/dashboard', {
-    templateUrl: '../templates/_profile.html',
+  .when('/', {
+    templateUrl: '../templates/_welcome.html',
     controller: 'navController'
   })
   .when('/chat', {
     templateUrl: '../templates/_chat.html',
-    controller: 'navController'
+    controller: 'chatController'
   })
   .when('/draw', {
     templateUrl: '../templates/_draw.html',
@@ -21,29 +21,8 @@ app.config(function($routeProvider){
     controller: 'navController'
   })
   .when('/profile', {
-    templateUrl: '../templates/_profile.html',
+    templateUrl: '../templates/_profile.ejs',
     controller: 'navController'
   })
-  .otherwise({redirectTo: '/dashboard'});
+  .otherwise({redirectTo: '/'});
 });
-
-
-
-//******* CONTROLLERS **********
-
-app.controller('navController', function(){
-});
-
-//******* DIRECTIVES**********
-
-app.directive("test", function(){
-return{
-    templateUrl: "../templates/_test.html",
-    };
-});
-
-app.directive("dashNav",function(){
-  return{
-    templateUrl: "../templates/_dashNav.html"
-  }
-})

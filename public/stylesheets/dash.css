@@ -1,0 +1,138 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,700);
+
+
+/****Navigation*****/
+#dash{
+  margin:0;
+  padding:0;
+  height:125px;
+
+  font-family:'Roboto';
+  background-color:#263238;
+
+  -webkit-box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.75);
+}
+
+#dash a {
+  text-decoration: none;
+  list-style: none;
+  color: #CFD8DC;
+}
+
+#heading{
+  display:flex;
+  height:60px;
+  align-items: center;
+  border-bottom: 1px solid white;
+}
+
+#title{
+  margin:0;
+  padding:0;
+  margin-right:auto;
+  margin-left: 2em;
+  color:white;
+  font-weight:500;
+}
+
+.profile{
+  margin:0;
+  padding:0;
+  margin-right:2em;
+  font-weight: 300;
+}
+
+.profile li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.profImg{
+  margin:0;
+  margin-left:10px;
+  padding:0;
+  width:30px;
+  height:30px;
+  border-radius:50% 50%;
+  background-color:teal;
+  border:2px solid white;
+}
+
+
+#dashNav ul {
+  padding:0;
+  padding-top: 10px;
+  margin:0;
+  height:inherit;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  font-weight: 300;
+}
+
+#dashNav a {
+  text-decoration: none;
+  list-style: none;
+  color: #CFD8DC;
+}
+
+#dashNav li{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navImg{
+  width:30px;
+  height:30px;
+  background-color: #CFD8DC;
+}
+
+
+
+
+/****Logout*****/
+#dashFlexContainer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    background-color:rgba(0, 0, 0, 0.7);
+    /*position:fixed;
+    top:0;
+    left:0;*/
+}
+
+#logoutContainer{
+  max-height: 475px;
+  max-width:357px;
+  background-color: #263238;
+  border-radius: 10px;
+
+  -webkit-box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.75);
+
+  color:white;
+
+  position: relative;
+  padding:10px;
+}
+
+#logoutContainer h3{
+  text-align: center;
+}
+
+.logoutButton{
+  position:absolute;
+  top:10px;
+  right:10px;
+}
+
+.logoutButton button{
+  border-radius:10px;
+}
