@@ -3,7 +3,7 @@
 var socket = io();
 
 var form = document.getElementById('chatForm');
-var mes = document.getElementById('m');
+var mes = document.getElementById('msg');
 var ul = document.getElementById('messages');
 
 // $('form').submit(function(){
@@ -16,12 +16,14 @@ var ul = document.getElementById('messages');
 // socket.on('chat message', function(msg){
 //  $('#messages').append($('<li>').text(msg));
 //  });
-function updateScroll(){
-    var ul = document.getElementById("messages");
-    ul.scrollTop = ul.scrollHeight;
-      console.log(ul.scrollHeight + 100);
-}
 
+
+// function updateScroll(){
+//     var ul = document.getElementById("messages");
+//     ul.scrollTop = ul.scrollHeight;
+//       console.log(ul.scrollHeight + 100);
+// }
+console.log("loaded file");
 if(form.addEventListener){
   form.addEventListener("submit",
   function(evt){
