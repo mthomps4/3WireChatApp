@@ -20,8 +20,9 @@ var configDB = require('./passportConfig/database.js');
 //For Socket Chat
 app.io = require('socket.io')();
 
-
 mongoose.connect(configDB.url); // connect to our database
+
+
 require('./passportConfig/passport')(passport); // pass passport for configuration
 
 // view engine setup

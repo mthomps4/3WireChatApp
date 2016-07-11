@@ -20,9 +20,9 @@ app.config(function($routeProvider){
     controller: 'navController'
   })
   .when('/profile', {
-    templateUrl: '../templates/_profile.ejs',
-    controller: 'profController',
-  })
+      templateUrl: '../templates/_profile.ejs',
+      controller: 'profController'
+    })
   .otherwise({redirectTo: '/'});
 });
 
