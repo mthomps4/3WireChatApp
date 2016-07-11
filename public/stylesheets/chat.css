@@ -5,7 +5,7 @@
   display:flex;
   justify-content: flex-end;
   align-items: flex-end;
-  height:calc(100vh - 165px);
+  height:calc(100vh - 142px);
 }
 
 #chatForm{
@@ -40,7 +40,7 @@
   margin: 0;
   padding: 0;
   width:100%;
-  height:calc(100vh - 165px);
+  height:calc(100vh - 142px);
   overflow-y: scroll;
 
   justify-content: flex-end;
@@ -66,5 +66,5 @@
 }
 
 #messages li:nth-child(odd){
-  background-color:rgba(255, 255, 255, 0.5);;
+  background-color:rgba(255, 255, 255, 0.3);;
 }

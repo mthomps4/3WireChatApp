@@ -5,7 +5,7 @@
 #dash{
   margin:0;
   padding:0;
-  height:125px;
+  height:100px;
 
   font-family:'Roboto';
   background-color:#263238;
@@ -23,9 +23,9 @@
 
 #heading{
   display:flex;
-  height:60px;
+  height:40px;
   align-items: center;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #ccc;
 }
 
 #title{
@@ -88,7 +88,7 @@
 .navImg{
   width:30px;
   height:30px;
-  background-color: #CFD8DC;
+  /*background-color: #CFD8DC;*/
 }
 
 
@@ -125,11 +125,12 @@
 }
 
 .logoutButton{
-  position:absolute;
-  top:10px;
-  right:10px;
+  margin-right: 20px;
 }
 
 .logoutButton button{
-  border-radius:10px;
+  border-radius:0px;
+  background-color:#263238;
+  color:white;
+  opacity: .7;
 }
