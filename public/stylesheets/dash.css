@@ -61,7 +61,6 @@
   border:2px solid white;
 }
 
-
 #dashNav ul {
   padding:0;
   padding-top: 10px;
@@ -93,11 +92,9 @@
 }
 
 
-
-
 /****Logout*****/
 #dashFlexContainer{
-    display:flex;
+    display:flex; /*TESTING*/
     justify-content: center;
     align-items: center;
     height:100vh;

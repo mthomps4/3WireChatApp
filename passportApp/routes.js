@@ -59,7 +59,7 @@ app.get('/dashboard', isLoggedIn, function(req, res) {
       res.render('dashboard.ejs', {
           user : req.user // get the user out of session and pass to template
       });
-  });
+});
 
     // =====================================
     // LOGOUT ==============================

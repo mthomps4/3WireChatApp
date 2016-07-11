@@ -1,5 +1,4 @@
 'use strict';
-
 var app = angular.module('app',["ngRoute"]);
 
 app.config(function($routeProvider){
@@ -22,7 +21,15 @@ app.config(function($routeProvider){
   })
   .when('/profile', {
     templateUrl: '../templates/_profile.ejs',
-    controller: 'navController'
+    controller: 'profController',
   })
   .otherwise({redirectTo: '/'});
 });
+
+// var profile = document.getElementById('profile');
+// var logInfo = document.getElementById('dashFlexContainer');
+// profile.addEventListener('click', function(event){
+//     if(logInfo.style.display == "none"){
+//     logInfo.style.display = "flex";
+//     }
+// });

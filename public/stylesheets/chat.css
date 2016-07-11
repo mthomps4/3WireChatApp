@@ -9,10 +9,12 @@
 }
 
 #chatForm{
-  height:60px;
+  height:inherit;
 }
+
 #MSGBOX{
   background-color: #263238;
+  display:flex;
 }
 
 #nickname{
@@ -20,23 +22,43 @@
 }
 
 #msg{
- width:79%;
- padding:5px;
- margin:5px;
+  flex-grow: 1;
+  padding:5px;
+  margin:5px;
 }
 
 #send{
+  margin:5px;
   padding:5px;
-  width:18%;
+  width:100px;
   color:teal;
+  text-align: center;
 }
 
 #messages {
   list-style-type: none;
   margin: 0;
   padding: 0;
-
   width:100%;
+  height:calc(100vh - 165px);
+  overflow-y: scroll;
+
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+#messages::-webkit-scrollbar {
+    width: 12px;
+}
+
+#messages::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+#messages::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 
 #messages li {
@@ -44,5 +66,5 @@
 }
 
 #messages li:nth-child(odd){
-  background-color:gray;
+  background-color:rgba(255, 255, 255, 0.5);;
 }

@@ -18,11 +18,12 @@ var ul = document.getElementById('messages');
 //  });
 
 
-// function updateScroll(){
-//     var ul = document.getElementById("messages");
-//     ul.scrollTop = ul.scrollHeight;
-//       console.log(ul.scrollHeight + 100);
-// }
+function updateScroll(){
+    var ul = document.getElementById("messages");
+    ul.scrollTop = ul.scrollHeight;
+      console.log(ul.scrollHeight + 100);
+}
+
 console.log("loaded file");
 if(form.addEventListener){
   form.addEventListener("submit",
@@ -34,7 +35,6 @@ if(form.addEventListener){
   },
     false)
 };
-
 
 socket.on('chat message', function(msg){
   var node = document.createElement("li");
