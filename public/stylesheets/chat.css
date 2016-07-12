@@ -63,6 +63,7 @@
 
 #messages li {
   padding: 10px;
+  opacity:.83;
 }
 
 #messages li:nth-child(odd){
