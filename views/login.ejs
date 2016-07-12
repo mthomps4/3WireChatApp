@@ -15,18 +15,22 @@
   <div id="backgroundOverlay">
 
     <div id="flexContainer">
+      <div id="splashContainer">
 
     <div id="mainContainer">
+
+
       <h1 id="Title">3WireChat</h1>
       <h3> Login </h3>
 
-      <!-- show any messages that come back with authentication -->
-      <% if (message.length > 0) { %>
-       <div class="alert alert-danger"><p>ERR:</p> <%= message %></div>
-      <% } %>
 
       <!-- LOGIN FORM -->
       <form id="loginForm" action="/login" method="post">
+        <!-- show any messages that come back with authentication -->
+        <% if (message.length > 0) { %>
+         <div class="alert"><p>ERR: <%= message %> </p></div>
+        <% } %>
+
         <div class="form-group">
             <label>Email:</label>
             <input type="email" class="form-control" name="email" placeholder="Email">
@@ -43,7 +47,7 @@
       <p id="mainSignup">Need an account? <a href="/signup">Signup</a></p>
 
     </div>
-    </div>
+  </div></div>
     </div></div>
   </body>
       </html>
