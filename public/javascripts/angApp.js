@@ -13,11 +13,11 @@ app.config(function($routeProvider){
   })
   .when('/draw', {
     templateUrl: '../templates/_draw.html',
-    controller: 'navController'
+    controller: 'drawController'
   })
   .when('/calc', {
     templateUrl: '../templates/_calc.html',
-    controller: 'navController'
+    controller: 'calcController'
   })
   .when('/profile', {
       templateUrl: '../templates/_profile.ejs',

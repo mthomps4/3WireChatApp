@@ -5,5 +5,8 @@ app.controller('navController', function(){
 app.controller('chatController',function(){
 });
 
-app.controller('profController',function($scope){
+app.controller('drawController',function(){
+});
+
+app.controller('profController',function(){
 });
