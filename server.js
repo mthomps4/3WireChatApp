@@ -24,7 +24,6 @@ mongoose.connect(configDB.url); // connect to our database
 
 
 require('./passportConfig/passport')(passport); // pass passport for configuration
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -88,13 +87,29 @@ app.use(function(err, req, res, next) {
 
 
 //SOCKET.IO
+var messages = mongoose.Schema({
+  message: String
+});
+
+var Chat = mongoose.model('message', messages);
+
 app.io.on('connection', function(socket){
   console.log('a user connected');
 
+
+
   socket.on('chat message', function(msg){
      console.log('chat message: ' + msg);
-     app.io.emit('chat message', msg);
+     var newMsg = new Chat({message: "" + msg})
+     console.log('attempt to save ' + msg);
+        newMsg.save(function(err){
+          if(err)throw err;
+          console.log("echo back message " + msg);
+          app.io.emit('chat message', msg);
+        });
    });
+
+
 
    socket.on('disconnect', function(){
      console.log('user disconnected');
