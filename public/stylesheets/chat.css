@@ -70,10 +70,13 @@
   background-color:rgba(255, 255, 255, 0.3);;
 }
 
-@media (max-width:480px){
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
   #chatContainer{
     height:calc(100vh - 207px);
-
   }
 
   #messages{
