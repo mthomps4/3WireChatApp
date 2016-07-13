@@ -22,7 +22,6 @@ app.io = require('socket.io')();
 
 mongoose.connect(configDB.url); // connect to our database
 
-
 require('./passportConfig/passport')(passport); // pass passport for configuration
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -96,7 +95,11 @@ var Chat = mongoose.model('message', messages);
 app.io.on('connection', function(socket){
   console.log('a user connected');
 
-
+  Chat.find({}, function(err, messages){
+    if (err) return console.error(err);
+    console.log(messages);
+    socket.emit('load old msgs', messages);
+  });
 
   socket.on('chat message', function(msg){
      console.log('chat message: ' + msg);

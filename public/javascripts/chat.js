@@ -29,6 +29,17 @@ if(form.addEventListener){
     false)
 };
 
+socket.on('load old msgs', function(messages){
+  for(var i=0; i<messages.length; i++){
+
+      var node = document.createElement("li");
+      var textnode = document.createTextNode(messages[i].message);
+      node.appendChild(textnode);
+      // <li> textnode </li>
+      ul.appendChild(node);
+      updateScroll();
+    }
+});
 
 socket.on('chat message', function(msg){
   var node = document.createElement("li");
