@@ -37,6 +37,7 @@
 
 #calculator{
   width:80%;
+  max-width: 300px;
  padding:0;
 }
 
@@ -68,6 +69,11 @@ margin:auto;
   flex-grow: 1;
   padding-left: 20px;
   opacity: .8;
+}
+
+#Thickness{
+    margin-right: 10%;
+    padding: 5px;
 }
 
 #calculator input{
