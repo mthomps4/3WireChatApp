@@ -1,34 +1,45 @@
 #Run
+- mongod
 - npm start
 
 # 3WireChatApp
 Collaborative web app to Chat, Layout(QuickSketch), and Estimate board-feet for woodworking projects.
-- Will look to use MEAN stack with Socket.io
+- MEAN stack with Socket.io
 - Passport Local for Authentication
 
-
-#Login
-- main.html for root
+#Login Express Frontend 
+- main.html 
 - login.html (already a user)
 - signup.html (new user)
-- Not dealing with Google/Facebook/Twitter yet
-- redirect to dashboard.html 
+- redirect to dashboard.html (landing page for Angular app) 
 
-# Desktop Layout & Function
-Login:
-Main: Dashboard of projects
+#Dashboard 
+###Chat 
+- socket.io connect 
+- saves messages to MongoDB/3WireChat {messages}
+- uploads old messages if any available. 
+- chat name at bottom left 
+- chat window sized to fit max height available. 
+- message screen scrollable 
 
-Project view:
-Left: Chat window
-Center-Left: Project Selector
-Center: Draw canvas and pinboard for project image.
-Right: Draw tools and Board Calculations.
+###Draw 
+- looking to create quick sketch 
+- inspiration sketch.io/sketchpad 
+- save projects locally or to MongoDB for print/use 
 
-#Mobile Layout & Function
-Login:
-Main: Select Project
-Project view:
-3 button nav at bottom
-- Chat
-- View Only of Canvas (Image Canvas copy)  
-- Board Estimator from selected project
+###Calc 
+- Describe Board Feet 
+
+- Calculator 
+  - Piece name (ie. Table Legs) 
+  - Thickness (4/4, 8/4, etc.) 
+  - Width 
+  - Length 
+  - Number of pieces needed  
+  - Add to List 
+
+- Project List 
+  - Project Title 
+  - Appended Calculations and Names 
+  - Total Board Feet 
+  - Displays 
