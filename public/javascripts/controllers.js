@@ -1,5 +1,9 @@
 //******* CONTROLLERS **********
-app.controller('navController', function(){
+app.controller('navController', function($scope){
+  $scope.$on('$routeChangeStart', function(next, current) {
+     socket.disconnect();
+   });
+
 });
 
 app.controller('chatController',function(){

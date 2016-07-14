@@ -91,9 +91,17 @@
   /*background-color: #CFD8DC;*/
 }
 
+.soon:hover:after {
+  content: "Comming Soon";
+  background-color:#263238;
+  padding:2px;
+  font-style: italic;
+  font-weight: 500;
+}
+
 #screenName{
   width:75px;
-  margin:5px; 
+  margin:5px;
 }
 
 #heading label {
