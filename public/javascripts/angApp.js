@@ -25,11 +25,3 @@ app.config(function($routeProvider){
     })
   .otherwise({redirectTo: '/'});
 });
-
-// var profile = document.getElementById('profile');
-// var logInfo = document.getElementById('dashFlexContainer');
-// profile.addEventListener('click', function(event){
-//     if(logInfo.style.display == "none"){
-//     logInfo.style.display = "flex";
-//     }
-// });

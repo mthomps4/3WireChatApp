@@ -41,17 +41,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // required for passport
-app.use(session({ secret: 'BuildChats' })); // session secret
+app.use(session({
+  secret: 'BuildChats',
+  resave: true,
+  saveUninitialized: true
+})); // session
+
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 // routes ======================================================================
 require('./passportApp/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
-
-// launch ======================================================================
-console.log('The gate to Gondor is open');
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

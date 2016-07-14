@@ -31,14 +31,13 @@ if(form.addEventListener){
 
 socket.on('load old msgs', function(messages){
   for(var i=0; i<messages.length; i++){
-
-      var node = document.createElement("li");
-      var textnode = document.createTextNode(messages[i].message);
-      node.appendChild(textnode);
-      // <li> textnode </li>
-      ul.appendChild(node);
-      updateScroll();
-    }
+        var node = document.createElement("li");
+        var textnode = document.createTextNode(messages[i].message);
+        node.appendChild(textnode);
+        // <li> textnode </li>
+        ul.appendChild(node);
+        updateScroll();
+      }
 });
 
 socket.on('chat message', function(msg){
@@ -49,27 +48,4 @@ socket.on('chat message', function(msg){
   ul.appendChild(node);
   updateScroll();
   // console.log('RAWR');
-  // console.log(nameValue);
 });
-
-// socket.on('chat message', function(msg){
-//   var node = document.createElement("li");
-//   var textnode = document.createTextNode(msg);
-//   node.appendChild(textnode);
-//   // <li> textnode </li>
-//   ul.appendChild(node);
-//   updateScroll();
-//   // console.log('RAWR');
-//   // console.log(nameValue);
-// });
-
-// $('form').submit(function(){
-//   socket.emit('chat message', $('#m').val());
-//   console.log($('#m').val());
-//   $('#m').val('');
-//   return false;
-// });
-
-// socket.on('chat message', function(msg){
-//  $('#messages').append($('<li>').text(msg));
-//  });
