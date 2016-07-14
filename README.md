@@ -41,5 +41,4 @@ Collaborative web app to Chat, Layout(QuickSketch), and Estimate board-feet for 
 - Project List 
   - Project Title 
   - Appended Calculations and Names 
-  - Total Board Feet 
-  - Displays 
+  - Displays Total Board Feet 
